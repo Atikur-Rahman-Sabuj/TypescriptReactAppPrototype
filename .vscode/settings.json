@@ -1,0 +1,11 @@
+{
+   "workbench.colorCustomizations": {
+      "[Material Theme Ocean]": {
+         "titleBar.activeBackground": "#89e7ff",
+         "titleBar.inactiveBackground": "#89e7ff",
+         "titleBar.activeForeground": "#000000",
+         "titleBar.inactiveForeground": "#000000",
+         "menubar.selectionForeground": "#000000"
+      }
+   }
+}

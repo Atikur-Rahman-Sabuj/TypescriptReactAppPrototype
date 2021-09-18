@@ -6,6 +6,7 @@ import { InputField } from "components/form/inputRenderes";
 import { required } from "services/validators";
 import { Button } from "react-bootstrap";
 import { actions } from "@redux/userRedux";
+import { clientCodeAsyncValidate } from "services/asyncValidate";
 export const Login = (props: any) => {
    const login = (model) => {
       userDataAccess
@@ -24,8 +25,10 @@ export const Login = (props: any) => {
       <div>
          <h1>Please login to continue</h1>
          <form onSubmit={props.handleSubmit((data) => login(data))}>
+            <Field name="asyncValidate" type="text" component={InputField} label="Async Validate" />
             <Field name="email" component={InputField} label="Email" validate={required} />
             <Field name="password" type="password" component={InputField} label="Password" validate={required} />
+
             <Button type="submit">Login</Button>
          </form>
       </div>
@@ -38,6 +41,8 @@ const mapDispatchToProps = {};
 
 const LoginForm = reduxForm({
    form: "LoginForm",
+   asyncValidate: clientCodeAsyncValidate,
+   asyncChangeFields: ["asyncValidate"],
 })(Login);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
